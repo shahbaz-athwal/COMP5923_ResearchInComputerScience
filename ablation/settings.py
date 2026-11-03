@@ -14,6 +14,7 @@ import torch
 # Each condition is the baseline plus exactly one change. Nothing else differs between them.
 CONDITIONS = {
     "baseline": {},
+    "rmsnorm": {"normalization": "rmsnorm"},
 }
 
 DEFAULT_SETTINGS = dict(
@@ -31,6 +32,7 @@ DEFAULT_SETTINGS = dict(
     context_length=256,
     dropout=0.2,
     use_bias=False,
+    normalization="layernorm",
     # training length
     batch_size=64,
     gradient_accumulation_steps=1,

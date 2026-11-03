@@ -28,6 +28,7 @@ class ModelConfig:
     embedding_size: int = 384
     dropout: float = 0.2
     use_bias: bool = False
+    normalization: str = "layernorm"  # "layernorm" (baseline) or "rmsnorm"
 
 
 class LayerNorm(nn.Module):
@@ -45,6 +46,38 @@ class LayerNorm(nn.Module):
 
     def forward(self, inputs):
         return F.layer_norm(inputs, self.weight.shape, self.weight, self.bias, self.epsilon)
+
+
+class RMSNorm(nn.Module):
+    """
+    RMSNorm (Zhang and Sennrich, 2019). Divides by the root mean square of the input and
+    multiplies by a learned gain. Compared with LayerNorm it skips subtracting the mean,
+    so the only thing it controls is the overall size of the vector, not where it's centred.
+
+        output = input / sqrt(mean(input^2) + epsilon) * gain
+
+    I use the same epsilon as the LayerNorm above so that isn't a second difference.
+    """
+
+    def __init__(self, size, epsilon=1e-5):
+        super().__init__()
+        self.weight = nn.Parameter(torch.ones(size))
+        self.epsilon = epsilon
+
+    def forward(self, inputs):
+        # Compute in float32 even under mixed precision, since squaring small numbers in
+        # bfloat16 loses a lot of accuracy.
+        inputs_float = inputs.float()
+        inverse_rms = torch.rsqrt(inputs_float.pow(2).mean(dim=-1, keepdim=True) + self.epsilon)
+        return (inputs_float * inverse_rms).type_as(inputs) * self.weight
+
+
+def make_norm(config):
+    if config.normalization == "layernorm":
+        return LayerNorm(config.embedding_size, config.use_bias)
+    if config.normalization == "rmsnorm":
+        return RMSNorm(config.embedding_size)
+    raise ValueError(f"unknown normalization: {config.normalization}")
 
 
 class CausalSelfAttention(nn.Module):
@@ -108,9 +141,9 @@ class TransformerBlock(nn.Module):
 
     def __init__(self, config):
         super().__init__()
-        self.attention_norm = LayerNorm(config.embedding_size, config.use_bias)
+        self.attention_norm = make_norm(config)
         self.attention = CausalSelfAttention(config)
-        self.feed_forward_norm = LayerNorm(config.embedding_size, config.use_bias)
+        self.feed_forward_norm = make_norm(config)
         self.feed_forward = FeedForward(config)
 
     def forward(self, residual):
@@ -127,7 +160,7 @@ class GPT(nn.Module):
         self.position_embedding = nn.Embedding(config.context_length, config.embedding_size)
         self.embedding_dropout = nn.Dropout(config.dropout)
         self.blocks = nn.ModuleList([TransformerBlock(config) for _ in range(config.number_of_layers)])
-        self.final_norm = LayerNorm(config.embedding_size, config.use_bias)
+        self.final_norm = make_norm(config)
         self.output_head = nn.Linear(config.embedding_size, config.vocabulary_size, bias=False)
 
         # Weight tying, as in GPT-2 and nanoGPT: the same matrix turns ids into vectors

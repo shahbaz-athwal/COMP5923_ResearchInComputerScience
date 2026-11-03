@@ -33,6 +33,7 @@ def build_model(settings, vocabulary_size):
         embedding_size=settings["embedding_size"],
         dropout=settings["dropout"],
         use_bias=settings["use_bias"],
+        normalization=settings["normalization"],
     )
     return GPT(model_config), model_config
 
