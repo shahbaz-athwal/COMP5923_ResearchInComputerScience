@@ -21,6 +21,7 @@ import torch
 
 from ablation import data
 from ablation.model import GPT, ModelConfig
+from ablation.muon import Muon
 from ablation.settings import parse_settings
 
 
@@ -40,11 +41,25 @@ def build_model(settings, vocabulary_size):
 
 
 def build_optimizers(model, settings, device_type):
-    """Returns a list of optimizers, so the training loop can treat one or several the same way."""
+    """
+    Returns a list of optimizers, so the training loop can treat one or two the same way.
+
+    Baseline: AdamW trains everything.
+    Muon condition: Muon takes over the hidden matrices, and everything else stays on
+    exactly the same AdamW as the baseline. That way the optimizer for the hidden
+    matrices is the only thing that changes.
+    """
     hidden_matrices, other_matrices, no_decay = model.parameter_groups()
+    if settings["optimizer"] == "adamw":
+        adamw_matrices = hidden_matrices + other_matrices
+    elif settings["optimizer"] == "muon":
+        adamw_matrices = other_matrices
+    else:
+        raise ValueError(f"unknown optimizer: {settings['optimizer']}")
+
     adamw = torch.optim.AdamW(
         [
-            {"params": hidden_matrices + other_matrices, "weight_decay": settings["weight_decay"]},
+            {"params": adamw_matrices, "weight_decay": settings["weight_decay"]},
             {"params": no_decay, "weight_decay": 0.0},
         ],
         lr=settings["learning_rate"],
@@ -52,6 +67,16 @@ def build_optimizers(model, settings, device_type):
         fused=(device_type == "cuda"),
     )
     optimizers = [adamw]
+
+    if settings["optimizer"] == "muon":
+        muon = Muon(
+            hidden_matrices,
+            lr=settings["muon_learning_rate"],
+            momentum=settings["muon_momentum"],
+            newton_schulz_steps=settings["newton_schulz_steps"],
+            weight_decay=settings["weight_decay"],
+        )
+        optimizers.append(muon)
 
     # Remember each group's peak learning rate, because the schedule rewrites "lr" every step.
     for optimizer in optimizers:

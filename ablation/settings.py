@@ -16,6 +16,7 @@ CONDITIONS = {
     "baseline": {},
     "rope": {"position_encoding": "rope"},
     "rmsnorm": {"normalization": "rmsnorm"},
+    "muon": {"optimizer": "muon"},
 }
 
 DEFAULT_SETTINGS = dict(
@@ -40,6 +41,7 @@ DEFAULT_SETTINGS = dict(
     gradient_accumulation_steps=1,
     training_steps=5000,
     # AdamW, which trains every parameter in the baseline
+    optimizer="adamw",
     learning_rate=1e-3,
     minimum_learning_rate_ratio=0.1,  # nanoGPT decays to 1e-4, which is a tenth of the peak
     warmup_steps=100,
@@ -48,6 +50,12 @@ DEFAULT_SETTINGS = dict(
     adam_beta1=0.9,
     adam_beta2=0.99,
     gradient_clip=1.0,
+    # Muon, only used in the muon condition and only for the hidden matrices.
+    # It follows the same warmup and cosine schedule as AdamW, but has its own peak
+    # learning rate because Muon updates are on a completely different scale.
+    muon_learning_rate=0.02,
+    muon_momentum=0.95,
+    newton_schulz_steps=5,
     # evaluation
     evaluation_interval=250,
     evaluation_batches=200,
