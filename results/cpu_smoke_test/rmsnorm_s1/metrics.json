@@ -1,0 +1,130 @@
+{
+ "condition": "rmsnorm",
+ "seed": 1,
+ "settings": {
+  "condition": "rmsnorm",
+  "seed": 1,
+  "output_directory": "runs/cpu_smoke_test/rmsnorm_s1",
+  "dataset": "shakespeare_char",
+  "device": "cpu",
+  "compile_model": false,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "context_length": 64,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "rmsnorm",
+  "position_encoding": "learned",
+  "batch_size": 12,
+  "gradient_accumulation_steps": 1,
+  "training_steps": 1000,
+  "optimizer": "adamw",
+  "learning_rate": 0.001,
+  "minimum_learning_rate_ratio": 0.1,
+  "warmup_steps": 50,
+  "decay_steps": 1000,
+  "weight_decay": 0.1,
+  "adam_beta1": 0.9,
+  "adam_beta2": 0.99,
+  "gradient_clip": 1.0,
+  "muon_learning_rate": 0.02,
+  "muon_momentum": 0.95,
+  "newton_schulz_steps": 5,
+  "evaluation_interval": 100,
+  "evaluation_batches": 20,
+  "evaluation_seed": 1234,
+  "sample_length": 200
+ },
+ "model_config": {
+  "context_length": 64,
+  "vocabulary_size": 65,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "rmsnorm",
+  "position_encoding": "learned",
+  "rope_base": 10000.0
+ },
+ "parameter_count": 795904,
+ "device": "cpu",
+ "torch_version": "2.15.0+cu132",
+ "steps": 1000,
+ "tokens_seen": 768000,
+ "train_time_s": 54.70525461109355,
+ "ms_per_step": 54.70525461109355,
+ "diverged": false,
+ "final_val_loss": 2.124934883533745,
+ "final_val_perplexity": 8.372352292381326,
+ "history": [
+  {
+   "step": 0,
+   "train_loss": 4.209171152114868,
+   "val_loss": 4.202430057525635,
+   "time_s": 3.3499673008918762e-06
+  },
+  {
+   "step": 100,
+   "train_loss": 2.5859289526939393,
+   "val_loss": 2.530114471912384,
+   "time_s": 5.513724732911214
+  },
+  {
+   "step": 200,
+   "train_loss": 2.485701084136963,
+   "val_loss": 2.4169153690338137,
+   "time_s": 10.916563045000657
+  },
+  {
+   "step": 300,
+   "train_loss": 2.40445636510849,
+   "val_loss": 2.3649110794067383,
+   "time_s": 16.51045703305863
+  },
+  {
+   "step": 400,
+   "train_loss": 2.346086061000824,
+   "val_loss": 2.317055642604828,
+   "time_s": 21.86011220701039
+  },
+  {
+   "step": 500,
+   "train_loss": 2.2930540442466736,
+   "val_loss": 2.2674589276313784,
+   "time_s": 27.248830375028774
+  },
+  {
+   "step": 600,
+   "train_loss": 2.2507285118103026,
+   "val_loss": 2.215165579319,
+   "time_s": 32.68955950299278
+  },
+  {
+   "step": 700,
+   "train_loss": 2.1877866625785827,
+   "val_loss": 2.173738420009613,
+   "time_s": 38.061133834999055
+  },
+  {
+   "step": 800,
+   "train_loss": 2.1459110736846925,
+   "val_loss": 2.142612409591675,
+   "time_s": 43.66342633403838
+  },
+  {
+   "step": 900,
+   "train_loss": 2.116729533672333,
+   "val_loss": 2.115305817127228,
+   "time_s": 49.32272900012322
+  },
+  {
+   "step": 1000,
+   "train_loss": 2.1031742334365844,
+   "val_loss": 2.1000305354595183,
+   "time_s": 54.70525461109355
+  }
+ ],
+ "sample": "\n\nCatord here to aus leant ave to you com.\n\n\nTOMENDUELA:\nWar, comeng, ind my spoorond noaies, he she,\nIr too putelly dour the nobe thish oot therd:\nPay, thir aut a macke you the the ear more,\nBun thos "
+}

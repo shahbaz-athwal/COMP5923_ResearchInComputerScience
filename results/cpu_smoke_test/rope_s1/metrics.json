@@ -1,0 +1,130 @@
+{
+ "condition": "rope",
+ "seed": 1,
+ "settings": {
+  "condition": "rope",
+  "seed": 1,
+  "output_directory": "runs/cpu_smoke_test/rope_s1",
+  "dataset": "shakespeare_char",
+  "device": "cpu",
+  "compile_model": false,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "context_length": 64,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "layernorm",
+  "position_encoding": "rope",
+  "batch_size": 12,
+  "gradient_accumulation_steps": 1,
+  "training_steps": 1000,
+  "optimizer": "adamw",
+  "learning_rate": 0.001,
+  "minimum_learning_rate_ratio": 0.1,
+  "warmup_steps": 50,
+  "decay_steps": 1000,
+  "weight_decay": 0.1,
+  "adam_beta1": 0.9,
+  "adam_beta2": 0.99,
+  "gradient_clip": 1.0,
+  "muon_learning_rate": 0.02,
+  "muon_momentum": 0.95,
+  "newton_schulz_steps": 5,
+  "evaluation_interval": 100,
+  "evaluation_batches": 20,
+  "evaluation_seed": 1234,
+  "sample_length": 200
+ },
+ "model_config": {
+  "context_length": 64,
+  "vocabulary_size": 65,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "layernorm",
+  "position_encoding": "rope",
+  "rope_base": 10000.0
+ },
+ "parameter_count": 795904,
+ "device": "cpu",
+ "torch_version": "2.15.0+cu132",
+ "steps": 1000,
+ "tokens_seen": 768000,
+ "train_time_s": 54.33896567602642,
+ "ms_per_step": 54.33896567602642,
+ "diverged": false,
+ "final_val_loss": 1.9359054330022136,
+ "final_val_perplexity": 6.9303161524281345,
+ "history": [
+  {
+   "step": 0,
+   "train_loss": 4.212598919868469,
+   "val_loss": 4.20952615737915,
+   "time_s": 2.461019903421402e-06
+  },
+  {
+   "step": 100,
+   "train_loss": 2.4347877860069276,
+   "val_loss": 2.3724943876266478,
+   "time_s": 4.43106514820829
+  },
+  {
+   "step": 200,
+   "train_loss": 2.267999458312988,
+   "val_loss": 2.2224674105644224,
+   "time_s": 8.962431399151683
+  },
+  {
+   "step": 300,
+   "train_loss": 2.157674956321716,
+   "val_loss": 2.1484474182128905,
+   "time_s": 13.265305448090658
+  },
+  {
+   "step": 400,
+   "train_loss": 2.072687304019928,
+   "val_loss": 2.0933886408805846,
+   "time_s": 17.69920012494549
+  },
+  {
+   "step": 500,
+   "train_loss": 2.0072850823402404,
+   "val_loss": 2.0365047991275786,
+   "time_s": 22.75140197505243
+  },
+  {
+   "step": 600,
+   "train_loss": 1.9532808363437653,
+   "val_loss": 1.9994682908058166,
+   "time_s": 27.73318851017393
+  },
+  {
+   "step": 700,
+   "train_loss": 1.9051435589790344,
+   "val_loss": 1.9689855813980102,
+   "time_s": 34.42749454220757
+  },
+  {
+   "step": 800,
+   "train_loss": 1.8732482373714447,
+   "val_loss": 1.9500127851963043,
+   "time_s": 41.738803225103766
+  },
+  {
+   "step": 900,
+   "train_loss": 1.8464139699935913,
+   "val_loss": 1.9293884456157684,
+   "time_s": 48.012402537046
+  },
+  {
+   "step": 1000,
+   "train_loss": 1.8310123026371001,
+   "val_loss": 1.9179636061191558,
+   "time_s": 54.33896567602642
+  }
+ ],
+ "sample": "\n\nCaw; the seand aur leave apin, by my shall with a virt.\nThat mave of thing thou have gainst heas not with fulledon doth thers\nbears as for there tesemes it all game to fait is the ears\nWhere in threa"
+}

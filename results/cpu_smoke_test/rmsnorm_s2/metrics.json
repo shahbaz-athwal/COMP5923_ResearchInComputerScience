@@ -1,0 +1,130 @@
+{
+ "condition": "rmsnorm",
+ "seed": 2,
+ "settings": {
+  "condition": "rmsnorm",
+  "seed": 2,
+  "output_directory": "runs/cpu_smoke_test/rmsnorm_s2",
+  "dataset": "shakespeare_char",
+  "device": "cpu",
+  "compile_model": false,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "context_length": 64,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "rmsnorm",
+  "position_encoding": "learned",
+  "batch_size": 12,
+  "gradient_accumulation_steps": 1,
+  "training_steps": 1000,
+  "optimizer": "adamw",
+  "learning_rate": 0.001,
+  "minimum_learning_rate_ratio": 0.1,
+  "warmup_steps": 50,
+  "decay_steps": 1000,
+  "weight_decay": 0.1,
+  "adam_beta1": 0.9,
+  "adam_beta2": 0.99,
+  "gradient_clip": 1.0,
+  "muon_learning_rate": 0.02,
+  "muon_momentum": 0.95,
+  "newton_schulz_steps": 5,
+  "evaluation_interval": 100,
+  "evaluation_batches": 20,
+  "evaluation_seed": 1234,
+  "sample_length": 200
+ },
+ "model_config": {
+  "context_length": 64,
+  "vocabulary_size": 65,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "rmsnorm",
+  "position_encoding": "learned",
+  "rope_base": 10000.0
+ },
+ "parameter_count": 795904,
+ "device": "cpu",
+ "torch_version": "2.15.0+cu132",
+ "steps": 1000,
+ "tokens_seen": 768000,
+ "train_time_s": 56.58801428601146,
+ "ms_per_step": 56.58801428601146,
+ "diverged": false,
+ "final_val_loss": 2.116084615617614,
+ "final_val_perplexity": 8.298581657965213,
+ "history": [
+  {
+   "step": 0,
+   "train_loss": 4.195308709144593,
+   "val_loss": 4.189982509613037,
+   "time_s": 3.420049324631691e-06
+  },
+  {
+   "step": 100,
+   "train_loss": 2.579911708831787,
+   "val_loss": 2.5341254591941835,
+   "time_s": 5.613331739092246
+  },
+  {
+   "step": 200,
+   "train_loss": 2.486936891078949,
+   "val_loss": 2.4337398648262023,
+   "time_s": 11.34685220522806
+  },
+  {
+   "step": 300,
+   "train_loss": 2.4067126274108888,
+   "val_loss": 2.363870143890381,
+   "time_s": 16.95334679214284
+  },
+  {
+   "step": 400,
+   "train_loss": 2.344385528564453,
+   "val_loss": 2.30887610912323,
+   "time_s": 22.575546235078946
+  },
+  {
+   "step": 500,
+   "train_loss": 2.2855277180671694,
+   "val_loss": 2.257014751434326,
+   "time_s": 28.187117170076817
+  },
+  {
+   "step": 600,
+   "train_loss": 2.2351571798324583,
+   "val_loss": 2.218932771682739,
+   "time_s": 33.75331885321066
+  },
+  {
+   "step": 700,
+   "train_loss": 2.175716209411621,
+   "val_loss": 2.1679932475090027,
+   "time_s": 39.47116394410841
+  },
+  {
+   "step": 800,
+   "train_loss": 2.134031069278717,
+   "val_loss": 2.1257543206214904,
+   "time_s": 44.97309375507757
+  },
+  {
+   "step": 900,
+   "train_loss": 2.102228581905365,
+   "val_loss": 2.1056842625141146,
+   "time_s": 50.65431607700884
+  },
+  {
+   "step": 1000,
+   "train_loss": 2.0855660259723665,
+   "val_loss": 2.090763109922409,
+   "time_s": 56.58801428601146
+  }
+ ],
+ "sample": "\nOf menlo, noe, shing sto!\n\nUno of But tis will lorve mod\nButher id heer theave this boow arre the and\nAse beiche'st the bome clore; as,\nWhe sie lot coom vestive, chausthin.\n\n\nKINENG ICH:\nThou me ceade"
+}

@@ -1,0 +1,130 @@
+{
+ "condition": "baseline",
+ "seed": 1,
+ "settings": {
+  "condition": "baseline",
+  "seed": 1,
+  "output_directory": "runs/cpu_smoke_test/baseline_s1",
+  "dataset": "shakespeare_char",
+  "device": "cpu",
+  "compile_model": false,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "context_length": 64,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "layernorm",
+  "position_encoding": "learned",
+  "batch_size": 12,
+  "gradient_accumulation_steps": 1,
+  "training_steps": 1000,
+  "optimizer": "adamw",
+  "learning_rate": 0.001,
+  "minimum_learning_rate_ratio": 0.1,
+  "warmup_steps": 50,
+  "decay_steps": 1000,
+  "weight_decay": 0.1,
+  "adam_beta1": 0.9,
+  "adam_beta2": 0.99,
+  "gradient_clip": 1.0,
+  "muon_learning_rate": 0.02,
+  "muon_momentum": 0.95,
+  "newton_schulz_steps": 5,
+  "evaluation_interval": 100,
+  "evaluation_batches": 20,
+  "evaluation_seed": 1234,
+  "sample_length": 200
+ },
+ "model_config": {
+  "context_length": 64,
+  "vocabulary_size": 65,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "layernorm",
+  "position_encoding": "learned",
+  "rope_base": 10000.0
+ },
+ "parameter_count": 795904,
+ "device": "cpu",
+ "torch_version": "2.15.0+cu132",
+ "steps": 1000,
+ "tokens_seen": 768000,
+ "train_time_s": 53.92344745970331,
+ "ms_per_step": 53.92344745970331,
+ "diverged": false,
+ "final_val_loss": 2.121072482022571,
+ "final_val_perplexity": 8.340077275894982,
+ "history": [
+  {
+   "step": 0,
+   "train_loss": 4.212478256225586,
+   "val_loss": 4.206049203872681,
+   "time_s": 2.1490268409252167e-06
+  },
+  {
+   "step": 100,
+   "train_loss": 2.590294051170349,
+   "val_loss": 2.5344500660896303,
+   "time_s": 5.584325113100931
+  },
+  {
+   "step": 200,
+   "train_loss": 2.485161232948303,
+   "val_loss": 2.417696845531464,
+   "time_s": 10.782204497139901
+  },
+  {
+   "step": 300,
+   "train_loss": 2.406853175163269,
+   "val_loss": 2.3711251735687258,
+   "time_s": 16.110912987962365
+  },
+  {
+   "step": 400,
+   "train_loss": 2.343367099761963,
+   "val_loss": 2.310354030132294,
+   "time_s": 21.580740680918097
+  },
+  {
+   "step": 500,
+   "train_loss": 2.2857505679130554,
+   "val_loss": 2.257902204990387,
+   "time_s": 26.86548147792928
+  },
+  {
+   "step": 600,
+   "train_loss": 2.240775156021118,
+   "val_loss": 2.210491120815277,
+   "time_s": 31.880050628911704
+  },
+  {
+   "step": 700,
+   "train_loss": 2.1856433272361757,
+   "val_loss": 2.1744579076766968,
+   "time_s": 37.40172794996761
+  },
+  {
+   "step": 800,
+   "train_loss": 2.1426804065704346,
+   "val_loss": 2.140095567703247,
+   "time_s": 42.84412917983718
+  },
+  {
+   "step": 900,
+   "train_loss": 2.1122735738754272,
+   "val_loss": 2.111292040348053,
+   "time_s": 48.28373223775998
+  },
+  {
+   "step": 1000,
+   "train_loss": 2.0977553367614745,
+   "val_loss": 2.0946400701999663,
+   "time_s": 53.92344745970331
+  }
+ ],
+ "sample": "\n\nCasestller:\nThe uspleret atier, you comenser troung ard and coneem,\nHearlioxp or angng oeer heas hang,\nAnd put oor dous the is yous as oot therd:\nPay, thir aut a macke you the the ears thelf tor prea"
+}

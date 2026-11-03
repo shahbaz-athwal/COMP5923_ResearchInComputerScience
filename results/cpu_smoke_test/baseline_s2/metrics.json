@@ -1,0 +1,130 @@
+{
+ "condition": "baseline",
+ "seed": 2,
+ "settings": {
+  "condition": "baseline",
+  "seed": 2,
+  "output_directory": "runs/cpu_smoke_test/baseline_s2",
+  "dataset": "shakespeare_char",
+  "device": "cpu",
+  "compile_model": false,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "context_length": 64,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "layernorm",
+  "position_encoding": "learned",
+  "batch_size": 12,
+  "gradient_accumulation_steps": 1,
+  "training_steps": 1000,
+  "optimizer": "adamw",
+  "learning_rate": 0.001,
+  "minimum_learning_rate_ratio": 0.1,
+  "warmup_steps": 50,
+  "decay_steps": 1000,
+  "weight_decay": 0.1,
+  "adam_beta1": 0.9,
+  "adam_beta2": 0.99,
+  "gradient_clip": 1.0,
+  "muon_learning_rate": 0.02,
+  "muon_momentum": 0.95,
+  "newton_schulz_steps": 5,
+  "evaluation_interval": 100,
+  "evaluation_batches": 20,
+  "evaluation_seed": 1234,
+  "sample_length": 200
+ },
+ "model_config": {
+  "context_length": 64,
+  "vocabulary_size": 65,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "layernorm",
+  "position_encoding": "learned",
+  "rope_base": 10000.0
+ },
+ "parameter_count": 795904,
+ "device": "cpu",
+ "torch_version": "2.15.0+cu132",
+ "steps": 1000,
+ "tokens_seen": 768000,
+ "train_time_s": 49.708587208995596,
+ "ms_per_step": 49.708587208995596,
+ "diverged": false,
+ "final_val_loss": 2.117112704177401,
+ "final_val_perplexity": 8.30711772199325,
+ "history": [
+  {
+   "step": 0,
+   "train_loss": 4.193163943290711,
+   "val_loss": 4.18702883720398,
+   "time_s": 2.289889380335808e-06
+  },
+  {
+   "step": 100,
+   "train_loss": 2.5807873725891115,
+   "val_loss": 2.537532126903534,
+   "time_s": 6.649347248952836
+  },
+  {
+   "step": 200,
+   "train_loss": 2.483124256134033,
+   "val_loss": 2.42972993850708,
+   "time_s": 10.802179137943313
+  },
+  {
+   "step": 300,
+   "train_loss": 2.403646779060364,
+   "val_loss": 2.362390196323395,
+   "time_s": 14.93788438104093
+  },
+  {
+   "step": 400,
+   "train_loss": 2.345499336719513,
+   "val_loss": 2.30838520526886,
+   "time_s": 19.188095722114667
+  },
+  {
+   "step": 500,
+   "train_loss": 2.288419556617737,
+   "val_loss": 2.2610105156898497,
+   "time_s": 23.433357258094475
+  },
+  {
+   "step": 600,
+   "train_loss": 2.2296908259391786,
+   "val_loss": 2.214162528514862,
+   "time_s": 28.300302691059187
+  },
+  {
+   "step": 700,
+   "train_loss": 2.17763215303421,
+   "val_loss": 2.1730241656303404,
+   "time_s": 32.42204128205776
+  },
+  {
+   "step": 800,
+   "train_loss": 2.140698027610779,
+   "val_loss": 2.1315890550613403,
+   "time_s": 38.82785776397213
+  },
+  {
+   "step": 900,
+   "train_loss": 2.1079224586486816,
+   "val_loss": 2.1111988484859467,
+   "time_s": 44.32676507998258
+  },
+  {
+   "step": 1000,
+   "train_loss": 2.092433887720108,
+   "val_loss": 2.0961037278175354,
+   "time_s": 49.708587208995596
+  }
+ ],
+ "sample": "\nOf menll, noee so you to sall io----braisan mugly\nAnd cought, hof sheer the batts eaboy! arre\nThe anceche beich, our to bome the the surtse of ord;\nWhe soos I monchaud lightliests: llover; witherkend."
+}

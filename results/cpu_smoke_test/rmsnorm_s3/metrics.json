@@ -1,0 +1,130 @@
+{
+ "condition": "rmsnorm",
+ "seed": 3,
+ "settings": {
+  "condition": "rmsnorm",
+  "seed": 3,
+  "output_directory": "runs/cpu_smoke_test/rmsnorm_s3",
+  "dataset": "shakespeare_char",
+  "device": "cpu",
+  "compile_model": false,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "context_length": 64,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "rmsnorm",
+  "position_encoding": "learned",
+  "batch_size": 12,
+  "gradient_accumulation_steps": 1,
+  "training_steps": 1000,
+  "optimizer": "adamw",
+  "learning_rate": 0.001,
+  "minimum_learning_rate_ratio": 0.1,
+  "warmup_steps": 50,
+  "decay_steps": 1000,
+  "weight_decay": 0.1,
+  "adam_beta1": 0.9,
+  "adam_beta2": 0.99,
+  "gradient_clip": 1.0,
+  "muon_learning_rate": 0.02,
+  "muon_momentum": 0.95,
+  "newton_schulz_steps": 5,
+  "evaluation_interval": 100,
+  "evaluation_batches": 20,
+  "evaluation_seed": 1234,
+  "sample_length": 200
+ },
+ "model_config": {
+  "context_length": 64,
+  "vocabulary_size": 65,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "rmsnorm",
+  "position_encoding": "learned",
+  "rope_base": 10000.0
+ },
+ "parameter_count": 795904,
+ "device": "cpu",
+ "torch_version": "2.15.0+cu132",
+ "steps": 1000,
+ "tokens_seen": 768000,
+ "train_time_s": 52.66389479069039,
+ "ms_per_step": 52.66389479069039,
+ "diverged": false,
+ "final_val_loss": 2.122039235144614,
+ "final_val_perplexity": 8.348143970262246,
+ "history": [
+  {
+   "step": 0,
+   "train_loss": 4.233183908462524,
+   "val_loss": 4.228652310371399,
+   "time_s": 2.7599744498729706e-06
+  },
+  {
+   "step": 100,
+   "train_loss": 2.5968334555625914,
+   "val_loss": 2.5638482928276063,
+   "time_s": 4.672667685896158
+  },
+  {
+   "step": 200,
+   "train_loss": 2.4718848943710325,
+   "val_loss": 2.42999781370163,
+   "time_s": 9.503012834815308
+  },
+  {
+   "step": 300,
+   "train_loss": 2.4057310223579407,
+   "val_loss": 2.3644458174705507,
+   "time_s": 15.162116414867342
+  },
+  {
+   "step": 400,
+   "train_loss": 2.337128531932831,
+   "val_loss": 2.3028391361236573,
+   "time_s": 20.49959069187753
+  },
+  {
+   "step": 500,
+   "train_loss": 2.2747430324554445,
+   "val_loss": 2.2569785118103027,
+   "time_s": 24.99646879383363
+  },
+  {
+   "step": 600,
+   "train_loss": 2.2145246863365173,
+   "val_loss": 2.207277202606201,
+   "time_s": 30.247278517810628
+  },
+  {
+   "step": 700,
+   "train_loss": 2.16871600151062,
+   "val_loss": 2.16471688747406,
+   "time_s": 35.81886315671727
+  },
+  {
+   "step": 800,
+   "train_loss": 2.132546329498291,
+   "val_loss": 2.1270721316337586,
+   "time_s": 41.387748354813084
+  },
+  {
+   "step": 900,
+   "train_loss": 2.1055694699287413,
+   "val_loss": 2.1103478908538817,
+   "time_s": 46.99743931973353
+  },
+  {
+   "step": 1000,
+   "train_loss": 2.091663819551468,
+   "val_loss": 2.0925329089164735,
+   "time_s": 52.66389479069039
+  }
+ ],
+ "sample": "\nThem yeant to wor the but thill the mor, you fe sooin wild live ant\nI taf thive putst he to well theat is trep then werem:\nShe pretsing tree om the brerigh, fore and hatet,\nWo wa me's wen cho cotis th"
+}

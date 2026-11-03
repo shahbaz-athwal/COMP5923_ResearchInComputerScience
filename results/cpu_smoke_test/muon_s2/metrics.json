@@ -1,0 +1,130 @@
+{
+ "condition": "muon",
+ "seed": 2,
+ "settings": {
+  "condition": "muon",
+  "seed": 2,
+  "output_directory": "runs/cpu_smoke_test/muon_s2",
+  "dataset": "shakespeare_char",
+  "device": "cpu",
+  "compile_model": false,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "context_length": 64,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "layernorm",
+  "position_encoding": "learned",
+  "batch_size": 12,
+  "gradient_accumulation_steps": 1,
+  "training_steps": 1000,
+  "optimizer": "muon",
+  "learning_rate": 0.001,
+  "minimum_learning_rate_ratio": 0.1,
+  "warmup_steps": 50,
+  "decay_steps": 1000,
+  "weight_decay": 0.1,
+  "adam_beta1": 0.9,
+  "adam_beta2": 0.99,
+  "gradient_clip": 1.0,
+  "muon_learning_rate": 0.02,
+  "muon_momentum": 0.95,
+  "newton_schulz_steps": 5,
+  "evaluation_interval": 100,
+  "evaluation_batches": 20,
+  "evaluation_seed": 1234,
+  "sample_length": 200
+ },
+ "model_config": {
+  "context_length": 64,
+  "vocabulary_size": 65,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "layernorm",
+  "position_encoding": "learned",
+  "rope_base": 10000.0
+ },
+ "parameter_count": 795904,
+ "device": "cpu",
+ "torch_version": "2.15.0+cu132",
+ "steps": 1000,
+ "tokens_seen": 768000,
+ "train_time_s": 84.38634026772343,
+ "ms_per_step": 84.38634026772343,
+ "diverged": false,
+ "final_val_loss": 1.7322987256449756,
+ "final_val_perplexity": 5.653635138649244,
+ "history": [
+  {
+   "step": 0,
+   "train_loss": 4.193163943290711,
+   "val_loss": 4.18702883720398,
+   "time_s": 2.9001384973526e-06
+  },
+  {
+   "step": 100,
+   "train_loss": 2.4741172432899474,
+   "val_loss": 2.4313186526298525,
+   "time_s": 9.082536192145199
+  },
+  {
+   "step": 200,
+   "train_loss": 2.237387454509735,
+   "val_loss": 2.2138150334358215,
+   "time_s": 18.042280547320843
+  },
+  {
+   "step": 300,
+   "train_loss": 2.063716870546341,
+   "val_loss": 2.095817559957504,
+   "time_s": 26.680357728153467
+  },
+  {
+   "step": 400,
+   "train_loss": 1.9615910351276398,
+   "val_loss": 1.9993979334831238,
+   "time_s": 35.21263581607491
+  },
+  {
+   "step": 500,
+   "train_loss": 1.864118629693985,
+   "val_loss": 1.952651309967041,
+   "time_s": 43.98314298503101
+  },
+  {
+   "step": 600,
+   "train_loss": 1.792588996887207,
+   "val_loss": 1.891643887758255,
+   "time_s": 52.64387287199497
+  },
+  {
+   "step": 700,
+   "train_loss": 1.7180698454380035,
+   "val_loss": 1.8536756098270417,
+   "time_s": 61.11504645179957
+  },
+  {
+   "step": 800,
+   "train_loss": 1.656318998336792,
+   "val_loss": 1.79113911986351,
+   "time_s": 69.7846799227409
+  },
+  {
+   "step": 900,
+   "train_loss": 1.6076438963413238,
+   "val_loss": 1.749887478351593,
+   "time_s": 78.05581717868336
+  },
+  {
+   "step": 1000,
+   "train_loss": 1.57813258767128,
+   "val_loss": 1.7154613494873048,
+   "time_s": 84.38634026772343
+  }
+ ],
+ "sample": "\nROMEO:\nHow you shall stoing alood to stiment\nHe wound couse her idleed, the batts word,\nBut where a comes on bast the may see that dan,\nWhen it both the vein is double lie.\n\nMENENIUS:\n\nComessemence, m"
+}

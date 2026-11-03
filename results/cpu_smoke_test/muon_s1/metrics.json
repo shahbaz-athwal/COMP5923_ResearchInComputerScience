@@ -1,0 +1,130 @@
+{
+ "condition": "muon",
+ "seed": 1,
+ "settings": {
+  "condition": "muon",
+  "seed": 1,
+  "output_directory": "runs/cpu_smoke_test/muon_s1",
+  "dataset": "shakespeare_char",
+  "device": "cpu",
+  "compile_model": false,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "context_length": 64,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "layernorm",
+  "position_encoding": "learned",
+  "batch_size": 12,
+  "gradient_accumulation_steps": 1,
+  "training_steps": 1000,
+  "optimizer": "muon",
+  "learning_rate": 0.001,
+  "minimum_learning_rate_ratio": 0.1,
+  "warmup_steps": 50,
+  "decay_steps": 1000,
+  "weight_decay": 0.1,
+  "adam_beta1": 0.9,
+  "adam_beta2": 0.99,
+  "gradient_clip": 1.0,
+  "muon_learning_rate": 0.02,
+  "muon_momentum": 0.95,
+  "newton_schulz_steps": 5,
+  "evaluation_interval": 100,
+  "evaluation_batches": 20,
+  "evaluation_seed": 1234,
+  "sample_length": 200
+ },
+ "model_config": {
+  "context_length": 64,
+  "vocabulary_size": 65,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "layernorm",
+  "position_encoding": "learned",
+  "rope_base": 10000.0
+ },
+ "parameter_count": 795904,
+ "device": "cpu",
+ "torch_version": "2.15.0+cu132",
+ "steps": 1000,
+ "tokens_seen": 768000,
+ "train_time_s": 81.97254196740687,
+ "ms_per_step": 81.97254196740687,
+ "diverged": false,
+ "final_val_loss": 1.7191688102914873,
+ "final_val_perplexity": 5.579888590264546,
+ "history": [
+  {
+   "step": 0,
+   "train_loss": 4.212478256225586,
+   "val_loss": 4.206049203872681,
+   "time_s": 2.00001522898674e-06
+  },
+  {
+   "step": 100,
+   "train_loss": 2.4853570580482485,
+   "val_loss": 2.432020890712738,
+   "time_s": 8.899971043225378
+  },
+  {
+   "step": 200,
+   "train_loss": 2.227933382987976,
+   "val_loss": 2.198896288871765,
+   "time_s": 17.736442851368338
+  },
+  {
+   "step": 300,
+   "train_loss": 2.0620857059955595,
+   "val_loss": 2.0702286839485167,
+   "time_s": 25.996723766438663
+  },
+  {
+   "step": 400,
+   "train_loss": 1.9478314161300658,
+   "val_loss": 1.9854202210903167,
+   "time_s": 32.690288545330986
+  },
+  {
+   "step": 500,
+   "train_loss": 1.8315284371376037,
+   "val_loss": 1.9112349927425385,
+   "time_s": 39.592075696447864
+  },
+  {
+   "step": 600,
+   "train_loss": 1.7654164910316468,
+   "val_loss": 1.85096834897995,
+   "time_s": 48.20994677441195
+  },
+  {
+   "step": 700,
+   "train_loss": 1.6989100575447083,
+   "val_loss": 1.81056050658226,
+   "time_s": 56.576685515465215
+  },
+  {
+   "step": 800,
+   "train_loss": 1.6362781703472138,
+   "val_loss": 1.768698763847351,
+   "time_s": 64.99582686950453
+  },
+  {
+   "step": 900,
+   "train_loss": 1.5930025696754455,
+   "val_loss": 1.7298914611339569,
+   "time_s": 73.3991324075032
+  },
+  {
+   "step": 1000,
+   "train_loss": 1.5628333330154418,
+   "val_loss": 1.696636188030243,
+   "time_s": 81.97254196740687
+  }
+ ],
+ "sample": "\n\nCan; the repent us leavens:\nFor you come, or true virtue, and here,\nHearlinxecutions gainst he show grate found.\n\nBRUTUS:\nWhy, your should therevers, he broken a man,\nOr buried in the morely swith sh"
+}

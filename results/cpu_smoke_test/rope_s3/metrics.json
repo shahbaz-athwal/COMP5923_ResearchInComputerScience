@@ -1,0 +1,130 @@
+{
+ "condition": "rope",
+ "seed": 3,
+ "settings": {
+  "condition": "rope",
+  "seed": 3,
+  "output_directory": "runs/cpu_smoke_test/rope_s3",
+  "dataset": "shakespeare_char",
+  "device": "cpu",
+  "compile_model": false,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "context_length": 64,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "layernorm",
+  "position_encoding": "rope",
+  "batch_size": 12,
+  "gradient_accumulation_steps": 1,
+  "training_steps": 1000,
+  "optimizer": "adamw",
+  "learning_rate": 0.001,
+  "minimum_learning_rate_ratio": 0.1,
+  "warmup_steps": 50,
+  "decay_steps": 1000,
+  "weight_decay": 0.1,
+  "adam_beta1": 0.9,
+  "adam_beta2": 0.99,
+  "gradient_clip": 1.0,
+  "muon_learning_rate": 0.02,
+  "muon_momentum": 0.95,
+  "newton_schulz_steps": 5,
+  "evaluation_interval": 100,
+  "evaluation_batches": 20,
+  "evaluation_seed": 1234,
+  "sample_length": 200
+ },
+ "model_config": {
+  "context_length": 64,
+  "vocabulary_size": 65,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "layernorm",
+  "position_encoding": "rope",
+  "rope_base": 10000.0
+ },
+ "parameter_count": 795904,
+ "device": "cpu",
+ "torch_version": "2.15.0+cu132",
+ "steps": 1000,
+ "tokens_seen": 768000,
+ "train_time_s": 56.580711054382846,
+ "ms_per_step": 56.580711054382846,
+ "diverged": false,
+ "final_val_loss": 1.936439337604492,
+ "final_val_perplexity": 6.934017268050574,
+ "history": [
+  {
+   "step": 0,
+   "train_loss": 4.195291662216187,
+   "val_loss": 4.192261910438537,
+   "time_s": 2.661021426320076e-06
+  },
+  {
+   "step": 100,
+   "train_loss": 2.4456873893737794,
+   "val_loss": 2.388765478134155,
+   "time_s": 5.693019810132682
+  },
+  {
+   "step": 200,
+   "train_loss": 2.243453860282898,
+   "val_loss": 2.2123836517333983,
+   "time_s": 11.346202867105603
+  },
+  {
+   "step": 300,
+   "train_loss": 2.139792251586914,
+   "val_loss": 2.11664674282074,
+   "time_s": 16.847218052251264
+  },
+  {
+   "step": 400,
+   "train_loss": 2.0733082234859466,
+   "val_loss": 2.083270180225372,
+   "time_s": 22.9026282702107
+  },
+  {
+   "step": 500,
+   "train_loss": 2.0072724342346193,
+   "val_loss": 2.0255481004714966,
+   "time_s": 28.55908160028048
+  },
+  {
+   "step": 600,
+   "train_loss": 1.949918621778488,
+   "val_loss": 1.9948650360107423,
+   "time_s": 34.10591018735431
+  },
+  {
+   "step": 700,
+   "train_loss": 1.9085990965366364,
+   "val_loss": 1.9736310720443726,
+   "time_s": 39.73568534012884
+  },
+  {
+   "step": 800,
+   "train_loss": 1.880145639181137,
+   "val_loss": 1.9399568676948546,
+   "time_s": 45.54096973827109
+  },
+  {
+   "step": 900,
+   "train_loss": 1.8484683632850647,
+   "val_loss": 1.9298360347747803,
+   "time_s": 51.071975857252255
+  },
+  {
+   "step": 1000,
+   "train_loss": 1.8334548056125641,
+   "val_loss": 1.9117957293987273,
+   "time_s": 56.580711054382846
+  }
+ ],
+ "sample": "\nTo my and the worth seld the lord Rim;\nHich my promin with like althellaf the depurst,\nThat well the a dold nond me worlys hach spass,\nMy detherend bear gase? Wermare heer,\nTo wa me's and chound that "
+}

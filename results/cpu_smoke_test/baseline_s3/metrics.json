@@ -1,0 +1,130 @@
+{
+ "condition": "baseline",
+ "seed": 3,
+ "settings": {
+  "condition": "baseline",
+  "seed": 3,
+  "output_directory": "runs/cpu_smoke_test/baseline_s3",
+  "dataset": "shakespeare_char",
+  "device": "cpu",
+  "compile_model": false,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "context_length": 64,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "layernorm",
+  "position_encoding": "learned",
+  "batch_size": 12,
+  "gradient_accumulation_steps": 1,
+  "training_steps": 1000,
+  "optimizer": "adamw",
+  "learning_rate": 0.001,
+  "minimum_learning_rate_ratio": 0.1,
+  "warmup_steps": 50,
+  "decay_steps": 1000,
+  "weight_decay": 0.1,
+  "adam_beta1": 0.9,
+  "adam_beta2": 0.99,
+  "gradient_clip": 1.0,
+  "muon_learning_rate": 0.02,
+  "muon_momentum": 0.95,
+  "newton_schulz_steps": 5,
+  "evaluation_interval": 100,
+  "evaluation_batches": 20,
+  "evaluation_seed": 1234,
+  "sample_length": 200
+ },
+ "model_config": {
+  "context_length": 64,
+  "vocabulary_size": 65,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "layernorm",
+  "position_encoding": "learned",
+  "rope_base": 10000.0
+ },
+ "parameter_count": 795904,
+ "device": "cpu",
+ "torch_version": "2.15.0+cu132",
+ "steps": 1000,
+ "tokens_seen": 768000,
+ "train_time_s": 48.36295347427949,
+ "ms_per_step": 48.36295347427949,
+ "diverged": false,
+ "final_val_loss": 2.1196962089954643,
+ "final_val_perplexity": 8.328606947458523,
+ "history": [
+  {
+   "step": 0,
+   "train_loss": 4.232576775550842,
+   "val_loss": 4.228320455551147,
+   "time_s": 1.980923116207123e-06
+  },
+  {
+   "step": 100,
+   "train_loss": 2.598356771469116,
+   "val_loss": 2.5653558373451233,
+   "time_s": 4.042259085923433
+  },
+  {
+   "step": 200,
+   "train_loss": 2.474093270301819,
+   "val_loss": 2.434490776062012,
+   "time_s": 9.456791852833703
+  },
+  {
+   "step": 300,
+   "train_loss": 2.4053287863731385,
+   "val_loss": 2.36207572221756,
+   "time_s": 14.639209310756996
+  },
+  {
+   "step": 400,
+   "train_loss": 2.3354836821556093,
+   "val_loss": 2.298513948917389,
+   "time_s": 19.89695073873736
+  },
+  {
+   "step": 500,
+   "train_loss": 2.274772012233734,
+   "val_loss": 2.2546172618865965,
+   "time_s": 25.07864495064132
+  },
+  {
+   "step": 600,
+   "train_loss": 2.2148113489151,
+   "val_loss": 2.2050880551338197,
+   "time_s": 30.28531315457076
+  },
+  {
+   "step": 700,
+   "train_loss": 2.1684080004692077,
+   "val_loss": 2.163654053211212,
+   "time_s": 35.67011390044354
+  },
+  {
+   "step": 800,
+   "train_loss": 2.134648656845093,
+   "val_loss": 2.1263604879379274,
+   "time_s": 40.16711675142869
+  },
+  {
+   "step": 900,
+   "train_loss": 2.107160431146622,
+   "val_loss": 2.1087088346481324,
+   "time_s": 44.3089786444325
+  },
+  {
+   "step": 1000,
+   "train_loss": 2.089247280359268,
+   "val_loss": 2.089192497730255,
+   "time_s": 48.36295347427949
+  }
+ ],
+ "sample": "\nThem neant that mares but thillst Rives, you fear\nBit will lik's it he af thive.\n\nThir, whou thistse a id the noy now meme hach sptsillice,\nAnd twif the gue fore and hitet, poor amt's wnoth bucht\nWhe "
+}

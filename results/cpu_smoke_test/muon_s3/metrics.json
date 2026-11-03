@@ -1,0 +1,130 @@
+{
+ "condition": "muon",
+ "seed": 3,
+ "settings": {
+  "condition": "muon",
+  "seed": 3,
+  "output_directory": "runs/cpu_smoke_test/muon_s3",
+  "dataset": "shakespeare_char",
+  "device": "cpu",
+  "compile_model": false,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "context_length": 64,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "layernorm",
+  "position_encoding": "learned",
+  "batch_size": 12,
+  "gradient_accumulation_steps": 1,
+  "training_steps": 1000,
+  "optimizer": "muon",
+  "learning_rate": 0.001,
+  "minimum_learning_rate_ratio": 0.1,
+  "warmup_steps": 50,
+  "decay_steps": 1000,
+  "weight_decay": 0.1,
+  "adam_beta1": 0.9,
+  "adam_beta2": 0.99,
+  "gradient_clip": 1.0,
+  "muon_learning_rate": 0.02,
+  "muon_momentum": 0.95,
+  "newton_schulz_steps": 5,
+  "evaluation_interval": 100,
+  "evaluation_batches": 20,
+  "evaluation_seed": 1234,
+  "sample_length": 200
+ },
+ "model_config": {
+  "context_length": 64,
+  "vocabulary_size": 65,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "layernorm",
+  "position_encoding": "learned",
+  "rope_base": 10000.0
+ },
+ "parameter_count": 795904,
+ "device": "cpu",
+ "torch_version": "2.15.0+cu132",
+ "steps": 1000,
+ "tokens_seen": 768000,
+ "train_time_s": 79.67005822970532,
+ "ms_per_step": 79.67005822970532,
+ "diverged": false,
+ "final_val_loss": 1.717484454062995,
+ "final_val_perplexity": 5.5704979809490265,
+ "history": [
+  {
+   "step": 0,
+   "train_loss": 4.232576775550842,
+   "val_loss": 4.228320455551147,
+   "time_s": 3.369990736246109e-06
+  },
+  {
+   "step": 100,
+   "train_loss": 2.495165777206421,
+   "val_loss": 2.447667896747589,
+   "time_s": 8.08760682400316
+  },
+  {
+   "step": 200,
+   "train_loss": 2.215359902381897,
+   "val_loss": 2.1953077793121336,
+   "time_s": 14.651066954946145
+  },
+  {
+   "step": 300,
+   "train_loss": 2.047036612033844,
+   "val_loss": 2.0671507835388185,
+   "time_s": 21.106431925902143
+  },
+  {
+   "step": 400,
+   "train_loss": 1.9172523021697998,
+   "val_loss": 1.982946652173996,
+   "time_s": 27.58163522183895
+  },
+  {
+   "step": 500,
+   "train_loss": 1.835519701242447,
+   "val_loss": 1.9191482722759248,
+   "time_s": 35.633417542790994
+  },
+  {
+   "step": 600,
+   "train_loss": 1.7524518132209779,
+   "val_loss": 1.8510761320590974,
+   "time_s": 45.22900567785837
+  },
+  {
+   "step": 700,
+   "train_loss": 1.6905542194843293,
+   "val_loss": 1.8066315233707428,
+   "time_s": 55.94557976885699
+  },
+  {
+   "step": 800,
+   "train_loss": 1.6373256266117096,
+   "val_loss": 1.7546784222126006,
+   "time_s": 62.9854499027133
+  },
+  {
+   "step": 900,
+   "train_loss": 1.595529890060425,
+   "val_loss": 1.7196111738681794,
+   "time_s": 71.66050616977736
+  },
+  {
+   "step": 1000,
+   "train_loss": 1.5710818648338318,
+   "val_loss": 1.6996250450611115,
+   "time_s": 79.67005822970532
+  }
+ ],
+ "sample": "\nThem near the worth a but that stream;\nHis me earthing with mades, he lady did what the would the sea girld nend:\nHow me slay me consent rester twife;\nWhat so we my done the down be't.\n\nDUKE VINCENTIO"
+}

@@ -1,0 +1,130 @@
+{
+ "condition": "rope",
+ "seed": 2,
+ "settings": {
+  "condition": "rope",
+  "seed": 2,
+  "output_directory": "runs/cpu_smoke_test/rope_s2",
+  "dataset": "shakespeare_char",
+  "device": "cpu",
+  "compile_model": false,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "context_length": 64,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "layernorm",
+  "position_encoding": "rope",
+  "batch_size": 12,
+  "gradient_accumulation_steps": 1,
+  "training_steps": 1000,
+  "optimizer": "adamw",
+  "learning_rate": 0.001,
+  "minimum_learning_rate_ratio": 0.1,
+  "warmup_steps": 50,
+  "decay_steps": 1000,
+  "weight_decay": 0.1,
+  "adam_beta1": 0.9,
+  "adam_beta2": 0.99,
+  "gradient_clip": 1.0,
+  "muon_learning_rate": 0.02,
+  "muon_momentum": 0.95,
+  "newton_schulz_steps": 5,
+  "evaluation_interval": 100,
+  "evaluation_batches": 20,
+  "evaluation_seed": 1234,
+  "sample_length": 200
+ },
+ "model_config": {
+  "context_length": 64,
+  "vocabulary_size": 65,
+  "number_of_layers": 4,
+  "number_of_heads": 4,
+  "embedding_size": 128,
+  "dropout": 0.0,
+  "use_bias": false,
+  "normalization": "layernorm",
+  "position_encoding": "rope",
+  "rope_base": 10000.0
+ },
+ "parameter_count": 795904,
+ "device": "cpu",
+ "torch_version": "2.15.0+cu132",
+ "steps": 1000,
+ "tokens_seen": 768000,
+ "train_time_s": 51.57679951284081,
+ "ms_per_step": 51.57679951284081,
+ "diverged": false,
+ "final_val_loss": 1.9244872075681982,
+ "final_val_perplexity": 6.851634298691892,
+ "history": [
+  {
+   "step": 0,
+   "train_loss": 4.2106870174407955,
+   "val_loss": 4.208919930458069,
+   "time_s": 2.780929207801819e-06
+  },
+  {
+   "step": 100,
+   "train_loss": 2.4325506567955015,
+   "val_loss": 2.3765812277793885,
+   "time_s": 5.097617369843647
+  },
+  {
+   "step": 200,
+   "train_loss": 2.237601137161255,
+   "val_loss": 2.1875566363334658,
+   "time_s": 9.995661827735603
+  },
+  {
+   "step": 300,
+   "train_loss": 2.1484687447547914,
+   "val_loss": 2.1290254950523377,
+   "time_s": 14.729962437646464
+  },
+  {
+   "step": 400,
+   "train_loss": 2.065583461523056,
+   "val_loss": 2.0734943628311155,
+   "time_s": 19.223752298625186
+  },
+  {
+   "step": 500,
+   "train_loss": 2.0030006170272827,
+   "val_loss": 2.027451628446579,
+   "time_s": 23.622946576680988
+  },
+  {
+   "step": 600,
+   "train_loss": 1.9482438147068024,
+   "val_loss": 1.9924523055553436,
+   "time_s": 28.96469049877487
+  },
+  {
+   "step": 700,
+   "train_loss": 1.9064113557338715,
+   "val_loss": 1.9714527606964112,
+   "time_s": 34.63030888978392
+  },
+  {
+   "step": 800,
+   "train_loss": 1.8660260558128356,
+   "val_loss": 1.9279016733169556,
+   "time_s": 40.30692434194498
+  },
+  {
+   "step": 900,
+   "train_loss": 1.8402274131774903,
+   "val_loss": 1.9157770931720735,
+   "time_s": 46.07906216196716
+  },
+  {
+   "step": 1000,
+   "train_loss": 1.8254099428653716,
+   "val_loss": 1.9021490931510925,
+   "time_s": 51.57679951284081
+  }
+ ],
+ "sample": "\nOf my lord; ears, you to spand of the kis\nTo hell in more day houd here the batts word,\nBut he counting fainst e'th the bose clare;\nWhust singel for that that me compecliend.\n\nSthat I as plood?\n\nGLOUC"
+}
