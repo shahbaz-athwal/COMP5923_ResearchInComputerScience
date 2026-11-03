@@ -1,0 +1,118 @@
+vaswani2017:
+  type: article
+  title: Attention Is All You Need
+  author: ["Vaswani, Ashish", "Shazeer, Noam", "Parmar, Niki", "Uszkoreit, Jakob", "Jones, Llion", "Gomez, Aidan N.", "Kaiser, Łukasz", "Polosukhin, Illia"]
+  date: 2017
+  parent:
+    type: proceedings
+    title: Advances in Neural Information Processing Systems (NeurIPS)
+
+radford2019:
+  type: report
+  title: Language Models are Unsupervised Multitask Learners
+  author: ["Radford, Alec", "Wu, Jeffrey", "Child, Rewon", "Luan, David", "Amodei, Dario", "Sutskever, Ilya"]
+  date: 2019
+  organization: OpenAI
+
+karpathy2022:
+  type: repository
+  title: nanoGPT
+  author: Karpathy, Andrej
+  date: 2022
+  url: https://github.com/karpathy/nanoGPT
+
+karpathy2015:
+  type: repository
+  title: "char-rnn (tiny Shakespeare dataset)"
+  author: Karpathy, Andrej
+  date: 2015
+  url: https://github.com/karpathy/char-rnn
+
+jordan2024speedrun:
+  type: repository
+  title: modded-nanogpt
+  author: Jordan, Keller
+  date: 2024
+  url: https://github.com/KellerJordan/modded-nanogpt
+
+jordan2024muon:
+  type: web
+  title: "Muon: An optimizer for hidden layers in neural networks"
+  author: ["Jordan, Keller", "Jin, Yuchen", "Boza, Vlado", "You, Jiacheng", "Cesista, Franz", "Newhouse, Laker", "Bernstein, Jeremy"]
+  date: 2024
+  url: https://kellerjordan.github.io/posts/muon/
+
+liu2025muon:
+  type: article
+  title: Muon is Scalable for LLM Training
+  author: ["Liu, Jingyuan", others]
+  date: 2025
+  parent:
+    type: periodical
+    title: arXiv preprint arXiv:2502.16982
+
+su2024roformer:
+  type: article
+  title: "RoFormer: Enhanced Transformer with Rotary Position Embedding"
+  author: ["Su, Jianlin", "Ahmed, Murtadha", "Lu, Yu", "Pan, Shengfeng", "Bo, Wen", "Liu, Yunfeng"]
+  date: 2024
+  parent:
+    type: periodical
+    title: Neurocomputing
+    volume: 568
+
+zhang2019rmsnorm:
+  type: article
+  title: Root Mean Square Layer Normalization
+  author: ["Zhang, Biao", "Sennrich, Rico"]
+  date: 2019
+  parent:
+    type: proceedings
+    title: Advances in Neural Information Processing Systems (NeurIPS)
+
+narang2021:
+  type: article
+  title: Do Transformer Modifications Transfer Across Implementations and Applications?
+  author: ["Narang, Sharan", "Chung, Hyung Won", "Tay, Yi", "Fedus, William", others]
+  date: 2021
+  parent:
+    type: proceedings
+    title: Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing (EMNLP)
+
+bouthillier2021:
+  type: article
+  title: Accounting for Variance in Machine Learning Benchmarks
+  author: ["Bouthillier, Xavier", "Delaunay, Pierre", "Bronzi, Mirko", others]
+  date: 2021
+  parent:
+    type: proceedings
+    title: Proceedings of Machine Learning and Systems (MLSys)
+
+loshchilov2019:
+  type: article
+  title: Decoupled Weight Decay Regularization
+  author: ["Loshchilov, Ilya", "Hutter, Frank"]
+  date: 2019
+  parent:
+    type: proceedings
+    title: International Conference on Learning Representations (ICLR)
+
+welch1947:
+  type: article
+  title: "The Generalization of 'Student's' Problem when Several Different Population Variances are Involved"
+  author: Welch, B. L.
+  date: 1947
+  parent:
+    type: periodical
+    title: Biometrika
+    volume: 34
+
+holm1979:
+  type: article
+  title: A Simple Sequentially Rejective Multiple Test Procedure
+  author: Holm, Sture
+  date: 1979
+  parent:
+    type: periodical
+    title: Scandinavian Journal of Statistics
+    volume: 6

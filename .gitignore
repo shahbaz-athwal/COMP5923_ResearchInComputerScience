@@ -10,3 +10,6 @@ data/*/meta.json
 
 # Scratch training runs. Runs that go into the paper are copied to results/.
 runs/
+
+# Local logs
+*.log
