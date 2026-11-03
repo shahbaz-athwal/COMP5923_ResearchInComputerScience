@@ -14,6 +14,7 @@ import torch
 # Each condition is the baseline plus exactly one change. Nothing else differs between them.
 CONDITIONS = {
     "baseline": {},
+    "rope": {"position_encoding": "rope"},
     "rmsnorm": {"normalization": "rmsnorm"},
 }
 
@@ -33,6 +34,7 @@ DEFAULT_SETTINGS = dict(
     dropout=0.2,
     use_bias=False,
     normalization="layernorm",
+    position_encoding="learned",
     # training length
     batch_size=64,
     gradient_accumulation_steps=1,

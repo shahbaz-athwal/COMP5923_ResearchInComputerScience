@@ -34,6 +34,7 @@ def build_model(settings, vocabulary_size):
         dropout=settings["dropout"],
         use_bias=settings["use_bias"],
         normalization=settings["normalization"],
+        position_encoding=settings["position_encoding"],
     )
     return GPT(model_config), model_config
 

@@ -29,6 +29,8 @@ class ModelConfig:
     dropout: float = 0.2
     use_bias: bool = False
     normalization: str = "layernorm"  # "layernorm" (baseline) or "rmsnorm"
+    position_encoding: str = "learned"  # "learned" (baseline) or "rope"
+    rope_base: float = 10000.0
 
 
 class LayerNorm(nn.Module):
@@ -80,6 +82,45 @@ def make_norm(config):
     raise ValueError(f"unknown normalization: {config.normalization}")
 
 
+class RotaryPositionEmbedding(nn.Module):
+    """
+    RoPE (Su et al., RoFormer). Instead of adding a learned position vector to the input,
+    each query and key vector is rotated by an angle that grows with its position.
+    The head dimensions are treated as pairs, and each pair rotates at its own speed:
+    the first pairs turn quickly, the last ones very slowly.
+
+    The useful part is that the dot product between a query at position m and a key at
+    position n only depends on m - n, because rotating both and comparing them leaves
+    just the difference of the two angles. So attention sees relative distance.
+
+    I pair dimension i with dimension i + head_size/2 ("rotate half", as in GPT-NeoX and
+    LLaMA) instead of neighbouring dimensions like the paper. That is just a fixed
+    reordering of the dimensions inside a head and gives the same attention scores.
+    """
+
+    def __init__(self, head_size, context_length, base):
+        super().__init__()
+        assert head_size % 2 == 0, "RoPE needs an even head size"
+        pair_index = torch.arange(0, head_size, 2).float()
+        rotation_speeds = 1.0 / (base ** (pair_index / head_size))
+        positions = torch.arange(context_length).float()
+        angles = torch.outer(positions, rotation_speeds)  # (context_length, head_size / 2)
+        # Precompute once. The two leading 1s let these broadcast over batch and heads.
+        self.register_buffer("cosine", angles.cos()[None, None], persistent=False)
+        self.register_buffer("sine", angles.sin()[None, None], persistent=False)
+
+    def forward(self, vectors):
+        # vectors: (batch, heads, sequence, head_size)
+        sequence_length = vectors.size(2)
+        cosine = self.cosine[:, :, :sequence_length].to(vectors.dtype)
+        sine = self.sine[:, :, :sequence_length].to(vectors.dtype)
+        first_half, second_half = vectors.chunk(2, dim=-1)
+        # The usual 2D rotation, applied to every (first_half[i], second_half[i]) pair.
+        rotated_first = first_half * cosine - second_half * sine
+        rotated_second = first_half * sine + second_half * cosine
+        return torch.cat([rotated_first, rotated_second], dim=-1)
+
+
 class CausalSelfAttention(nn.Module):
     def __init__(self, config):
         super().__init__()
@@ -93,6 +134,9 @@ class CausalSelfAttention(nn.Module):
         self.output_dropout = nn.Dropout(config.dropout)
         self.number_of_heads = config.number_of_heads
         self.head_size = size // config.number_of_heads
+        self.rotary = None
+        if config.position_encoding == "rope":
+            self.rotary = RotaryPositionEmbedding(self.head_size, config.context_length, config.rope_base)
 
     def split_into_heads(self, tensor):
         # (batch, sequence, embedding) -> (batch, heads, sequence, head_size)
@@ -105,6 +149,11 @@ class CausalSelfAttention(nn.Module):
         queries = self.split_into_heads(self.query(inputs))
         keys = self.split_into_heads(self.key(inputs))
         values = self.split_into_heads(self.value(inputs))
+        if self.rotary is not None:
+            # Only queries and keys get rotated. The attention scores come from them,
+            # while the values are the content being passed along.
+            queries = self.rotary(queries)
+            keys = self.rotary(keys)
 
         # is_causal=True applies the mask, so position t can only look at positions <= t.
         attended = F.scaled_dot_product_attention(
@@ -155,9 +204,14 @@ class TransformerBlock(nn.Module):
 class GPT(nn.Module):
     def __init__(self, config):
         super().__init__()
+        if config.position_encoding not in ("learned", "rope"):
+            raise ValueError(f"unknown position encoding: {config.position_encoding}")
         self.config = config
         self.token_embedding = nn.Embedding(config.vocabulary_size, config.embedding_size)
-        self.position_embedding = nn.Embedding(config.context_length, config.embedding_size)
+        # With RoPE the position information lives inside attention, so there is no table.
+        self.position_embedding = None
+        if config.position_encoding == "learned":
+            self.position_embedding = nn.Embedding(config.context_length, config.embedding_size)
         self.embedding_dropout = nn.Dropout(config.dropout)
         self.blocks = nn.ModuleList([TransformerBlock(config) for _ in range(config.number_of_layers)])
         self.final_norm = make_norm(config)
@@ -185,7 +239,7 @@ class GPT(nn.Module):
     def count_parameters(self, include_position_embedding=False):
         """Like nanoGPT, the position table is left out of the count by default."""
         total = sum(parameter.numel() for parameter in self.parameters())
-        if not include_position_embedding:
+        if self.position_embedding is not None and not include_position_embedding:
             total -= self.position_embedding.weight.numel()
         return total
 
@@ -193,8 +247,10 @@ class GPT(nn.Module):
         batch_size, sequence_length = token_ids.shape
         assert sequence_length <= self.config.context_length, "sequence is longer than the context length"
 
-        positions = torch.arange(sequence_length, device=token_ids.device)
-        hidden = self.token_embedding(token_ids) + self.position_embedding(positions)
+        hidden = self.token_embedding(token_ids)
+        if self.position_embedding is not None:
+            positions = torch.arange(sequence_length, device=token_ids.device)
+            hidden = hidden + self.position_embedding(positions)
         hidden = self.embedding_dropout(hidden)
         for block in self.blocks:
             hidden = block(hidden)
